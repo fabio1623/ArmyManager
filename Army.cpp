@@ -12,13 +12,15 @@ Army::Army()
 {
 	
 }
+
 Army::~Army()
 {
-	empty(this->troops);
+	this->troops.empty();
 }
-bool recruit(Civilian &cvl)
+
+bool recruit(Civilian &individual)
 {
-	Military *mlt = new Military(cvl);
-	
-	if(cvl.get)
+	Military *unit;
+	unit = new Military(individual);
+	return (false);
 }

@@ -86,4 +86,3 @@ void		Civilian::setStrengh(int const &sgh)
 {
 	this->strengh = sgh;
 }
-
