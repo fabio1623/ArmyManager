@@ -12,3 +12,13 @@
 *.a
 
 ArmyManager.1
+
+ArmyManager.config
+
+ArmyManager.creator
+
+ArmyManager.files
+
+ArmyManager.includes
+
+ArmyManager.creator.user
