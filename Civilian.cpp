@@ -13,7 +13,13 @@ Civilian::Civilian(std::string fname, std::string lname, std::string ctry, int s
 	this->firstname = fname;
 	this->lastname = lname;
 	this->country = ctry;
-	this->strengh = sgh;
+	if (sgh == -1)
+	{
+		srand(time(NULL));
+		this->strengh = rand() % 100 + 1;
+	}
+	else
+		this->strengh = sgh;
 }
 
 Civilian::Civilian(Civilian const &other)

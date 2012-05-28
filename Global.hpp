@@ -9,6 +9,7 @@
 #ifndef ArmyManager_Global_hpp
 #define ArmyManager_Global_hpp
 
+#include <time.h>
 #include <iostream>
 #include <vector>
 
