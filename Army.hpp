@@ -17,9 +17,9 @@ class	Army
 	vector<Military*>	troops;
 	
 	public :
-	Army(vector<Military*> troops);
+	Army();
 	~Army();
 	bool recruit(Civilian &civilian);
-}
+};
 
 #endif

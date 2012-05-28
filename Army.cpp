@@ -8,11 +8,11 @@
 
 #include "Army.hpp"
 
-Army(vector<Military*> troops)
+Army::Army()
 {
-	this->troops = troops;
+	
 }
-~Army()
+Army::~Army()
 {
 	empty(this->troops);
 }
@@ -20,5 +20,5 @@ bool recruit(Civilian &cvl)
 {
 	Military *mlt = new Military(cvl);
 	
-	
+	if(cvl.get)
 }
