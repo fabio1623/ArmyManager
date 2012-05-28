@@ -1,5 +1,5 @@
 //
-//  Military.h
+//  Military.hpp
 //  ArmyManager
 //
 //  Created by Fabio SARMENTO PEDRO on 28/05/12.

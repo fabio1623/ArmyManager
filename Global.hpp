@@ -10,6 +10,7 @@
 #define ArmyManager_Global_hpp
 
 #include <iostream>
+#include <vector>
 
 #include "Civilian.hpp"
 #include "Military.hpp"
