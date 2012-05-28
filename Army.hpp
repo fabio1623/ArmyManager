@@ -11,4 +11,15 @@
 
 #include "Global.hpp"
 
+class	Army
+{
+	private:
+	vector<Military*>	troops;
+	
+	public :
+	Army(vector<Military*> troops);
+	~Army();
+	bool recruit(Civilian &civilian);
+}
+
 #endif

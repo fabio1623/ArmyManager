@@ -6,4 +6,19 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#include <iostream>
+#include "Army.hpp"
+
+Army(vector<Military*> troops)
+{
+	this->troops = troops;
+}
+~Army()
+{
+	empty(this->troops);
+}
+bool recruit(Civilian &cvl)
+{
+	Military *mlt = new Military(cvl);
+	
+	
+}
