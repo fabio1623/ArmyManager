@@ -16,8 +16,29 @@ Civilian::Civilian(std::string fname, std::string lname, std::string ctry, int s
 	this->strengh = sgh;
 }
 
+Civilian::Civilian(Civilian const &other)
+{
+	this->firstname = other.firstname;
+	this->lastname = other.lastname;
+	this->country = other.country;
+	this->strengh = other.strengh;
+}
+
 Civilian::~Civilian()
 {
+	this->firstname.empty();
+	this->lastname.empty();
+	this->country.empty();
+	this->strengh = 0;
+}
+
+Civilian Civilian::operator=(Civilian const &other)
+{
+	this->firstname = other.firstname;
+	this->lastname = other.lastname;
+	this->country = other.country;
+	this->strengh = other.strengh;
+	return (*this);
 }
 
 std::string	Civilian::getFirstname(void) const
@@ -59,3 +80,4 @@ void		Civilian::setStrengh(int const &sgh)
 {
 	this->strengh = sgh;
 }
+

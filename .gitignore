@@ -22,3 +22,5 @@ ArmyManager.files
 ArmyManager.includes
 
 ArmyManager.creator.user
+
+Makefile

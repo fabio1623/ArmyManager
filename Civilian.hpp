@@ -21,7 +21,9 @@ class	Civilian
 
 	public:
 	Civilian(std::string fname, std::string lname, std::string ctry, int sgh = 0);
+	Civilian(Civilian const &other);
 	~Civilian();
+	Civilian operator=(Civilian const &other);
 	std::string	getFirstname(void) const;
 	void		setFirstname(std::string const &fname);
 	std::string	getLastname(void) const;

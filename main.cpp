@@ -6,11 +6,10 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#include <iostream>
+#include "Global.hpp"
 
-int main (int argc, const char * argv[])
+int main ()
 {
-
 	// insert code here...
 	std::cout << "Hello, World!\n";
 	return 0;
