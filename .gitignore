@@ -24,3 +24,5 @@ ArmyManager.includes
 ArmyManager.creator.user
 
 Makefile
+
+.DS_Store

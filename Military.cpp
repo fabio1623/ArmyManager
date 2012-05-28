@@ -8,27 +8,30 @@
 
 #include "Military.hpp"
 
-Military::Military(std::string mGrade, std::string mType, int mId)
+// Constructeur classique
+Military::Military(std::string fname, std::string lname, std::string ctry, int sgh,
+				   std::string mGrade, std::string mType, int mId)
+	: Civilian(fname, lname, ctry, sgh)
 {
 	this->grade = mGrade;
 	this->type = mType;
 	this->id = mId;
 }
 
+// Constructeur par copie de militaire
 Military::Military(Military const &other)
+	: Civilian(other.firstname, other.lastname, other.country, other.strengh)
 {
 	this->grade = other.grade;
 	this->type = other.type;
 	this->id = other.id;
 }
 
+// Constructeur par héritage d'un civil
 Military::Military(Civilian const &other)
-	: Civilian(other.firstname, other.lastname, other.country, other.strengh)
+	: Civilian(other.getFirstname(), other.getLastname(), other.getCountry(),
+			   other.getStrengh())
 {
-
-	this->grade = other.grade;
-	this->type = other.type;
-	this->id = other.id;
 }
 
 Military::~Military()

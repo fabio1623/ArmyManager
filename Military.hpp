@@ -9,7 +9,8 @@
 #ifndef ArmyManager_Military_hpp
 #define ArmyManager_Military_hpp
 
-#include "Global.hpp"
+#include <iostream>
+#include "Civilian.hpp"
 
 class	Military : public Civilian
 {
@@ -19,7 +20,8 @@ class	Military : public Civilian
 	int			id;
 
 	public:
-	Military(std::string mGrade, std::string mType, int mId);
+	Military(std::string fname, std::string lname, std::string ctry, int sgh,
+			 std::string mGrade, std::string mType, int mId);
 	Military(Military const &other);
 	Military(Civilian const &other);
 	~Military();

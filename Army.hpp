@@ -9,7 +9,9 @@
 #ifndef ArmyManager_Army_hpp
 #define ArmyManager_Army_hpp
 
-#include "Global.hpp"
+#include <vector>
+#include "Civilian.hpp"
+#include "Military.hpp"
 
 class	Army
 {

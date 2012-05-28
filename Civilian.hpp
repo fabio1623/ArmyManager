@@ -9,11 +9,12 @@
 #ifndef ArmyManager_Civilian_hpp
 #define ArmyManager_Civilian_hpp
 
-#include "Global.hpp"
+#include <time.h>
+#include <iostream>
 
 class	Civilian
 {
-	private:
+	protected:
 	std::string	firstname;
 	std::string lastname;
 	std::string	country;
