@@ -14,7 +14,7 @@
 class	Army
 {
 	private:
-	vector<Military*>	troops;
+	std::vector<Military*>	troops;
 	
 	public :
 	Army();

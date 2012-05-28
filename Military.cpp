@@ -7,3 +7,13 @@
 //
 
 #include <iostream>
+#include "Military.hpp"
+
+Military::Military()
+{
+	
+}
+Military::~Military()
+{
+	
+}
