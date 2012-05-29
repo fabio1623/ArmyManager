@@ -15,21 +15,27 @@
 class	Military : public Civilian
 {
 	private:
+	int			id;
 	std::string	grade;
 	std::string type;
-	int			id;
 
 	public:
 	Military(std::string fname, std::string lname, std::string ctry, int sgh,
-			 std::string mGrade, std::string mType, int mId);
+			 int mId, std::string mGrade, std::string mType);
 	Military(Military const &other);
 	Military(Civilian const &other);
 	~Military();
+	//Military	&operator=(Civilian const &other);
+	Military	&operator=(Military const &other);
+	bool		operator==(Civilian const &other);
+	bool		operator==(Military const &other);
+	bool		operator!=(Civilian const &other);
+	bool		operator!=(Military const &other);
+	int			getId(void) const;
 	std::string	getGrade(void) const;
 	void		setGrade(std::string const &mGrade);
 	std::string	getType(void) const;
 	void		setType(std::string const &mType);
-	int			getId(void) const;
 };
 
 #endif

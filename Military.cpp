@@ -10,7 +10,7 @@
 
 // Constructeur classique
 Military::Military(std::string fname, std::string lname, std::string ctry, int sgh,
-				   std::string mGrade, std::string mType, int mId)
+				   int mId, std::string mGrade, std::string mType)
 	: Civilian(fname, lname, ctry, sgh)
 {
 	this->grade = mGrade;
@@ -41,6 +41,62 @@ Military::~Military()
 	this->id = 0;
 }
 
+//Military &Military::operator=(Civilian const &other)
+//{
+//	this->firstname = other.firstname;
+//	this->lastname = other.lastname;
+//	this->country = other.country;
+//	this->strengh = other.strengh;
+//	return (*this);
+//}
+
+Military	&Military::operator=(Military const &other)
+{
+	this->firstname = other.firstname;
+	this->lastname = other.lastname;
+	this->country = other.country;
+	this->strengh = other.strengh;
+	return (*this);
+}
+
+bool	Military::operator==(Civilian const &other)
+{
+	if (this->firstname == other.getFirstname() &&
+		this->lastname == other.getLastname() &&
+		this->country == other.getCountry() &&
+		this->strengh == other.getStrengh())
+		return (true);
+	return (false);
+}
+
+bool	Military::operator==(Military const &other)
+{
+	if (this->firstname == other.firstname &&
+		this->lastname == other.lastname &&
+		this->country == other.country &&
+		this->strengh == other.strengh &&
+		this->id == other.id &&
+		this->grade == other.grade &&
+		this->type == other.type)
+		return (true);
+	return (false);
+}
+
+bool	Military::operator!=(Civilian const &other)
+{
+	return (!(*this == other));
+}
+
+bool	Military::operator!=(Military const &other)
+{
+	return (!(*this == other));
+}
+
+int		Military::getId(void) const
+{
+	return (this->id);
+}
+
 std::string	Military::getGrade(void) const
 {
 	return (this->grade);
@@ -59,9 +115,4 @@ std::string	Military::getType(void) const
 void		Military::setType(std::string const &mType)
 {
 	this->type = mType;
-}
-
-int			Military::getId(void) const
-{
-	return (this->id);
 }

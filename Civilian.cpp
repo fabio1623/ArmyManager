@@ -38,13 +38,28 @@ Civilian::~Civilian()
 	this->strengh = 0;
 }
 
-Civilian Civilian::operator=(Civilian const &other)
+Civilian &Civilian::operator=(Civilian const &other)
 {
 	this->firstname = other.firstname;
 	this->lastname = other.lastname;
 	this->country = other.country;
 	this->strengh = other.strengh;
 	return (*this);
+}
+
+bool	Civilian::operator==(Civilian const &other)
+{
+	if (this->firstname == other.firstname &&
+		this->lastname == other.lastname &&
+		this->country == other.country &&
+		this->strengh == other.strengh)
+		return (true);
+	return (false);
+}
+
+bool	Civilian::operator!=(Civilian const &other)
+{
+	return (!(*this == other));
 }
 
 std::string	Civilian::getFirstname(void) const
