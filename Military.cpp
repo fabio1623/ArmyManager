@@ -59,7 +59,7 @@ Military	&Military::operator=(Military const &other)
 	return (*this);
 }
 
-bool	Military::operator==(Civilian const &other)
+bool	Military::operator==(Civilian const &other) const
 {
 	if (this->firstname == other.getFirstname() &&
 		this->lastname == other.getLastname() &&
@@ -69,7 +69,7 @@ bool	Military::operator==(Civilian const &other)
 	return (false);
 }
 
-bool	Military::operator==(Military const &other)
+bool	Military::operator==(Military const &other) const
 {
 	if (this->firstname == other.firstname &&
 		this->lastname == other.lastname &&
@@ -82,12 +82,12 @@ bool	Military::operator==(Military const &other)
 	return (false);
 }
 
-bool	Military::operator!=(Civilian const &other)
+bool	Military::operator!=(Civilian const &other) const
 {
 	return (!(*this == other));
 }
 
-bool	Military::operator!=(Military const &other)
+bool	Military::operator!=(Military const &other) const
 {
 	return (!(*this == other));
 }

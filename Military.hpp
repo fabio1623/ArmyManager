@@ -27,10 +27,10 @@ class	Military : public Civilian
 	~Military();
 	//Military	&operator=(Civilian const &other);
 	Military	&operator=(Military const &other);
-	bool		operator==(Civilian const &other);
-	bool		operator==(Military const &other);
-	bool		operator!=(Civilian const &other);
-	bool		operator!=(Military const &other);
+	bool		operator==(Civilian const &other) const;
+	bool		operator==(Military const &other) const;
+	bool		operator!=(Civilian const &other) const;
+	bool		operator!=(Military const &other) const;
 	int			getId(void) const;
 	int			getRank(void) const;
 	void		setRank(int const &mRank);
