@@ -19,7 +19,7 @@ class	Army
 	private:
 	std::vector<std::string>	ranks;
 	std::vector<std::string>	types;
-	std::vector<Military*>	troops;
+	std::vector<Military*>		troops;
 
 	public:
 	Army();
