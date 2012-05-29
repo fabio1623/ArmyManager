@@ -38,9 +38,37 @@ std::string		Army::getTypeById(unsigned int type) const
 
 }
 
-bool recruit(Civilian &individual)
+bool Army::exist(Military const &milit)
 {
-	Military *unit;
-	unit = new Military(individual);
-	return (false);
+    for (unsigned int i=0; i<this->troops.size(); i++)
+    {
+        if (this->troops[i] == milit)
+        {
+            return (true);
+        }
+    }
+    return (false);
+}
+
+bool Army::exist(Civilian const &civil)
+{
+    for (unsigned int i=0; i<this->troops.size(); i++)
+    {
+        if (this->troops[i] == civil)
+        {
+            return (true);
+        }
+    }
+    return (false);
+}
+
+bool Army::recruit(Civilian &individual)
+{
+    if (exist(individual))
+        return (false);
+
+    Military *unit = new Military(individual);
+    this->troops.push_back(*unit);
+
+    return (true);
 }
