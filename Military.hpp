@@ -9,19 +9,19 @@
 #ifndef ArmyManager_Military_hpp
 #define ArmyManager_Military_hpp
 
-#include <iostream>
+#include <string>
 #include "Civilian.hpp"
 
 class	Military : public Civilian
 {
 	private:
-	int			id;
-	std::string	grade;
-	std::string type;
+	int	id;
+	int	rank;
+	int	type;
 
 	public:
 	Military(std::string fname, std::string lname, std::string ctry, int sgh,
-			 int mId, std::string mGrade, std::string mType);
+			 int mId, int mRank, int mType);
 	Military(Military const &other);
 	Military(Civilian const &other);
 	~Military();
@@ -32,10 +32,10 @@ class	Military : public Civilian
 	bool		operator!=(Civilian const &other);
 	bool		operator!=(Military const &other);
 	int			getId(void) const;
-	std::string	getGrade(void) const;
-	void		setGrade(std::string const &mGrade);
-	std::string	getType(void) const;
-	void		setType(std::string const &mType);
+	int			getRank(void) const;
+	void		setRank(int const &mRank);
+	int			getType(void) const;
+	void		setType(int const &mType);
 };
 
 #endif

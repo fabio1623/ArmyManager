@@ -10,7 +10,7 @@
 #define ArmyManager_Civilian_hpp
 
 #include <time.h>
-#include <iostream>
+#include <string>
 
 class	Civilian
 {

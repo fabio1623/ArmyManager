@@ -10,12 +10,32 @@
 
 Army::Army()
 {
-	
+
 }
 
 Army::~Army()
 {
 	this->troops.empty();
+}
+
+std::vector<std::string>	Army::getRanks(void) const
+{
+
+}
+
+std::string	Army::getRankById(unsigned int rank) const
+{
+
+}
+
+std::vector<std::string>	Army::getTypes(void) const
+{
+
+}
+
+std::string		Army::getTypeById(unsigned int type) const
+{
+
 }
 
 bool recruit(Civilian &individual)
