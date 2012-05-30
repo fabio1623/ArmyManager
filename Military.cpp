@@ -27,14 +27,14 @@ Military::Military(Civilian const &other)
 }
 
 // Constructeur par copie de militaire
-Military::Military(Military const &other)
-	: Civilian(other.firstname, other.lastname, other.country, other.strengh)
-{
-	this->id = other.id;
-	this->rank = other.rank;
-	this->type = other.type;
-	this->weapon = other.weapon;
-}
+//Military::Military(Military const &other)
+//	: Civilian(other.firstname, other.lastname, other.country, other.strengh)
+//{
+//	this->id = other.id;
+//	this->rank = other.rank;
+//	this->type = other.type;
+//	this->weapon = other.weapon;
+//}
 
 Military::~Military()
 {
@@ -81,7 +81,7 @@ bool	Military::operator==(Military const &other) const
 		this->id == other.id &&
 		this->rank == other.rank &&
 		this->type == other.type &&
-		this->weapon = other.weapon)
+		this->weapon == other.weapon)
 		return (true);
 	return (false);
 }
