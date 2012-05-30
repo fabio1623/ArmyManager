@@ -18,9 +18,9 @@ class	Civilian
 	std::string	firstname;
 	std::string lastname;
 	std::string	country;
-	int			strengh;
 
 	public:
+    int			strengh;
 	Civilian(std::string fname, std::string lname, std::string ctry, int sgh = 0);
 	Civilian(Civilian const &other);
 	~Civilian();

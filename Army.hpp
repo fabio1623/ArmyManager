@@ -31,6 +31,8 @@ class	Army
     bool exist(Military const &milit);
     bool exist(const Civilian &civil);
 	bool recruit(Civilian &civilian);
+    bool fire(Military &milit);
+    bool sendToWar(Military &milit);
 };
 
 #endif

@@ -72,3 +72,23 @@ bool Army::recruit(Civilian &individual)
 
     return (true);
 }
+
+bool Army::fire(Military &milit)
+{
+    if (exist(milit))
+    {
+        this->troops.pop_back(&milit);
+        return (true);
+    }
+    return (false);
+}
+
+bool Army::sendToWar(Military &milit)
+{
+    if (exist(milit))
+    {
+        milit.setStrengh((milit.strengh)+1);
+        return (true);
+    }
+    return (false);
+}
