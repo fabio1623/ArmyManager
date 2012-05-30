@@ -106,7 +106,7 @@ int		Military::getRank(void) const
 	return (this->rank);
 }
 
-void	Military::setRank(int const &mRank)
+void	Military::setRank(const int mRank)
 {
 	this->rank = mRank;
 }
@@ -116,7 +116,7 @@ int		Military::getType(void) const
 	return (this->type);
 }
 
-void		Military::setType(int const &mType)
+void		Military::setType(const int mType)
 {
 	this->type = mType;
 }
@@ -125,7 +125,7 @@ int			Military::getWeapon(void) const
 {
 	return (this->weapon);
 }
-void		Military::setWeapon(int const &mWeapon)
+void		Military::setWeapon(int const mWeapon)
 {
 	this->weapon = mWeapon;
 }

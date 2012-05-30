@@ -34,11 +34,11 @@ class	Military : public Civilian
 	bool		operator!=(Military const &other) const;
 	int			getId(void) const;
 	int			getRank(void) const;
-	void		setRank(int const &mRank);
+	void		setRank(int const mRank);
 	int			getType(void) const;
-	void		setType(int const &mType);
+	void		setType(int const mType);
 	int			getWeapon(void) const;
-	void		setWeapon(int const &mWeapon);
+	void		setWeapon(int const mWeapon);
 };
 
 #endif
