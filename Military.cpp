@@ -10,21 +10,13 @@
 
 // Constructeur classique
 Military::Military(std::string fname, std::string lname, std::string ctry, int sgh,
-				   int mId, int mRank, int mType)
+				   int mId, int mRank, int mType, int mWeapon)
 	: Civilian(fname, lname, ctry, sgh)
 {
+	this->id = mId;
 	this->rank = mRank;
 	this->type = mType;
-	this->id = mId;
-}
-
-// Constructeur par copie de militaire
-Military::Military(Military const &other)
-	: Civilian(other.firstname, other.lastname, other.country, other.strengh)
-{
-	this->rank = other.rank;
-	this->type = other.type;
-	this->id = other.id;
+	this->weapon = mWeapon;
 }
 
 // Constructeur par héritage d'un civil
@@ -34,11 +26,22 @@ Military::Military(Civilian const &other)
 {
 }
 
+// Constructeur par copie de militaire
+Military::Military(Military const &other)
+	: Civilian(other.firstname, other.lastname, other.country, other.strengh)
+{
+	this->id = other.id;
+	this->rank = other.rank;
+	this->type = other.type;
+	this->weapon = other.weapon;
+}
+
 Military::~Military()
 {
+	this->id = 0;
 	this->rank = 0;
 	this->type = 0;
-	this->id = 0;
+	this->weapon = 0;
 }
 
 //Military &Military::operator=(Civilian const &other)
@@ -50,14 +53,14 @@ Military::~Military()
 //	return (*this);
 //}
 
-Military	&Military::operator=(Military const &other)
-{
-	this->firstname = other.firstname;
-	this->lastname = other.lastname;
-	this->country = other.country;
-	this->strengh = other.strengh;
-	return (*this);
-}
+//Military	&Military::operator=(Military const &other)
+//{
+//	this->firstname = other.firstname;
+//	this->lastname = other.lastname;
+//	this->country = other.country;
+//	this->strengh = other.strengh;
+//	return (*this);
+//}
 
 bool	Military::operator==(Civilian const &other) const
 {
@@ -77,7 +80,8 @@ bool	Military::operator==(Military const &other) const
 		this->strengh == other.strengh &&
 		this->id == other.id &&
 		this->rank == other.rank &&
-		this->type == other.type)
+		this->type == other.type &&
+		this->weapon = other.weapon)
 		return (true);
 	return (false);
 }
@@ -115,4 +119,13 @@ int		Military::getType(void) const
 void		Military::setType(int const &mType)
 {
 	this->type = mType;
+}
+
+int			Military::getWeapon(void) const
+{
+	return (this->weapon);
+}
+void		Military::setWeapon(int const &mWeapon)
+{
+	this->weapon = mWeapon;
 }
