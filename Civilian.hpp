@@ -34,7 +34,7 @@ class	Civilian
 	std::string	getCountry(void) const;
 	void		setCountry(std::string const &ctry);
 	int			getStrengh(void) const;
-	void		setStrengh(int const &sgh);
+	void		setStrengh(int const sgh);
 };
 
 #endif

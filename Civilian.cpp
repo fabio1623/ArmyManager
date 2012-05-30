@@ -97,7 +97,7 @@ int			Civilian::getStrengh(void) const
 	return (this->strengh);
 }
 
-void		Civilian::setStrengh(int const &sgh)
+void		Civilian::setStrengh(const int sgh)
 {
 	this->strengh = sgh;
 }
