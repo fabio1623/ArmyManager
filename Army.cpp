@@ -10,16 +10,27 @@
 
 Army::Army()
 {
+    this->ranks.push_back("Soldier");
+    this->ranks.push_back("Sergent");
+    this->ranks.push_back("Colonel");
+    this->ranks.push_back("Capitain");
+    this->ranks.push_back("General");
 
+    this->types.push_back("Air");
+    this->types.push_back("Ground");
+    this->types.push_back("Marine");
 }
 
 Army::~Army()
 {
 	this->troops.empty();
+    this->ranks.empty();
+    this->types.empty();
 }
 
 std::vector<std::string>	Army::getRanks(void) const
 {
+    return (this->ranks);
 }
 
 std::string	Army::getRankById(unsigned int rank) const
