@@ -28,7 +28,7 @@ Army::~Army()
     this->types.empty();
 }
 
-std::vector<std::string>	Army::getRanks(void) const
+const std::vector<std::string> Army::getRanks(void) const
 {
     return (this->ranks);
 }
