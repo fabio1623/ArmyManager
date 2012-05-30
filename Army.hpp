@@ -24,10 +24,10 @@ class	Army
 	public:
 	Army();
 	~Army();
-	std::vector<std::string>	getRanks(void) const;
-	std::string					getRankById(unsigned int rank) const;
-	std::vector<std::string>	getTypes(void) const;
-	std::string					getTypeById(unsigned int type) const;
+	std::vector<std::string>		getRanks(void) const;
+	std::string						getRankById(unsigned int rank) const;
+	const std::vector<std::string>	&getTypes(void) const;
+	std::string						getTypeById(unsigned int type) const;
     int find(Military const &milit);
     int find(const Civilian &civil);
 	bool recruit(Civilian &civilian);

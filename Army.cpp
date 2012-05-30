@@ -20,7 +20,6 @@ Army::~Army()
 
 std::vector<std::string>	Army::getRanks(void) const
 {
-
 }
 
 std::string	Army::getRankById(unsigned int rank) const
@@ -28,14 +27,14 @@ std::string	Army::getRankById(unsigned int rank) const
     return (this->ranks[rank]);
 }
 
-std::vector<std::string>	Army::getTypes(void) const
+const std::vector<std::string> &Army::getTypes(void) const
 {
-
+	return (this->types);
 }
 
 std::string		Army::getTypeById(unsigned int type) const
 {
-
+	return (this->types[type]);
 }
 
 int Army::find(Military const &milit)
@@ -88,7 +87,7 @@ bool Army::sendToWar(Military &milit)
     if (find(milit) != -1)
         return (false);
 
-    milit.setStrengh((milit.getStrengh()+1);
+	milit.setStrengh(milit.getStrengh()+1);
     return (true);
 }
 
