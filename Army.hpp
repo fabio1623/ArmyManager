@@ -28,8 +28,8 @@ class	Army
 	std::string					getRankById(unsigned int rank) const;
 	std::vector<std::string>	getTypes(void) const;
 	std::string					getTypeById(unsigned int type) const;
-    bool exist(Military const &milit);
-    bool exist(const Civilian &civil);
+    int find(Military const &milit);
+    int find(const Civilian &civil);
 	bool recruit(Civilian &civilian);
     bool fire(Military &milit);
     bool sendToWar(Military &milit);

@@ -25,7 +25,7 @@ std::vector<std::string>	Army::getRanks(void) const
 
 std::string	Army::getRankById(unsigned int rank) const
 {
-
+    return (this->ranks[rank]);
 }
 
 std::vector<std::string>	Army::getTypes(void) const
@@ -38,33 +38,33 @@ std::string		Army::getTypeById(unsigned int type) const
 
 }
 
-bool Army::exist(Military const &milit)
+int Army::find(Military const &milit)
 {
     for (unsigned int i=0; i<this->troops.size(); i++)
     {
         if (this->troops[i] == milit)
         {
-            return (true);
+            return (i);
         }
     }
-    return (false);
+    return (-1);
 }
 
-bool Army::exist(Civilian const &civil)
+int Army::find(Civilian const &civil)
 {
     for (unsigned int i=0; i<this->troops.size(); i++)
     {
         if (this->troops[i] == civil)
         {
-            return (true);
+            return (i);
         }
     }
-    return (false);
+    return (-1);
 }
 
 bool Army::recruit(Civilian &individual)
 {
-    if (exist(individual))
+    if (find(individual) != -1)
         return (false);
 
     Military *unit = new Military(individual);
@@ -75,20 +75,21 @@ bool Army::recruit(Civilian &individual)
 
 bool Army::fire(Military &milit)
 {
-    if (exist(milit))
-    {
-        this->troops.pop_back(&milit);
-        return (true);
-    }
-    return (false);
+    int nMilit = find(milit);
+    if (nMilit == -1)
+        return (false);
+
+    this->troops.erase(this->troops.begin()+nMilit);
+    return (true);
 }
 
 bool Army::sendToWar(Military &milit)
 {
-    if (exist(milit))
-    {
-        milit.setStrengh((milit.strengh)+1);
-        return (true);
-    }
-    return (false);
+    if (find(milit) != -1)
+        return (false);
+
+    milit.setStrengh((milit.getStrengh()+1);
+    return (true);
 }
+
+
