@@ -17,7 +17,7 @@ int main ()
 {
     int choix = 0;
 	std::vector<Civilian> civilList;
-	Army army1;
+    Army army1;
 
     while (choix != 11)
         {
@@ -50,6 +50,17 @@ int main ()
                 case 4:
                 army1.recruit(civilList[findCivilian(civilList)]);
                         break;
+                case 5:
+                army1.displayMilitaries();
+                        break;
+                case 6:
+                army1.sendToWar(civilList[findCivilian(civilList)]);
+                        break;
+                case 7:
+                army1.fire(civilList[findCivilian(civilList)]);
+                        break;
+                //case 8:
+
             }
     }
 	return 0;

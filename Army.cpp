@@ -102,4 +102,11 @@ bool Army::sendToWar(Military &milit)
     return (true);
 }
 
+void displayMilitaries()
+{
+    for (int i=0; i < this->troops.size(); i++)
+    {
+        std::cout << "Militaire" + i + ": " << *this->troops[i] << std::endl;
+    }
+}
 

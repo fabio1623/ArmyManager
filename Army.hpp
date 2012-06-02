@@ -33,6 +33,7 @@ class	Army
 	bool recruit(Civilian &civilian);
     bool fire(Military &milit);
     bool sendToWar(Military &milit);
+    void displayMilitaries();
 };
 
 #endif
