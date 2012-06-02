@@ -19,7 +19,7 @@ Civilian::Civilian(std::string fname, std::string lname, std::string ctry, int s
 		this->strengh = rand() % 100 + 1;
 	}
 	else
-		this->strengh = sgh;
+        this->strength = sgh;
 }
 
 Civilian::Civilian(Civilian const &other)
@@ -27,7 +27,7 @@ Civilian::Civilian(Civilian const &other)
 	this->firstname = other.firstname;
 	this->lastname = other.lastname;
 	this->country = other.country;
-	this->strengh = other.strengh;
+    this->strength = other.strength;
 }
 
 Civilian::~Civilian()
@@ -35,7 +35,7 @@ Civilian::~Civilian()
 	this->firstname.empty();
 	this->lastname.empty();
 	this->country.empty();
-	this->strengh = 0;
+    this->strength = 0;
 }
 
 Civilian &Civilian::operator=(Civilian const &other)
@@ -43,7 +43,7 @@ Civilian &Civilian::operator=(Civilian const &other)
 	this->firstname = other.firstname;
 	this->lastname = other.lastname;
 	this->country = other.country;
-	this->strengh = other.strengh;
+    this->strength = other.strength;
 	return (*this);
 }
 
@@ -52,7 +52,7 @@ bool	Civilian::operator==(Civilian const &other)
 	if (this->firstname == other.firstname &&
 		this->lastname == other.lastname &&
 		this->country == other.country &&
-		this->strengh == other.strengh)
+        this->strength == other.strength)
 		return (true);
 	return (false);
 }
@@ -92,12 +92,12 @@ void		Civilian::setCountry(std::string const &ctry)
 	this->country = ctry;
 }
 
-int			Civilian::getStrengh(void) const
+int			Civilian::getStrength(void) const
 {
-	return (this->strengh);
+    return (this->strength);
 }
 
-void		Civilian::setStrengh(const int sgh)
+void		Civilian::setStrength(const int sgh)
 {
-	this->strengh = sgh;
+    this->strength = sgh;
 }
