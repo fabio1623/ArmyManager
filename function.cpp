@@ -17,7 +17,7 @@ Civilian *createCivilian()
     return (new Civilian(firstName, lastName, country, strength));
 }
 
-void displayCivilians(std::vector<Civilian*>lC)
+void displayCivilians(std::vector<Civilian *> lC)
 {
     for (int i=0; i < lC.size(); i++)
     {
@@ -33,22 +33,47 @@ std::ostream &operator << (std::ostream &cout, Civilian const &other)
 
 int findCivilian(std::vector <Civilian*> lC)
 {
+	std::stack<int>	correspondingCivillians;
     std::string fN, lN, c;
     int position = -1;
 
-    std::cout << "Nom : " << std::endl;
+	std::cout << "Nom (0 si pas connu) : " << std::endl;
     std::cin >> fN >> std::endl;
-    std::cout << "Prenom : " << std::endl;
+	std::cout << "Prenom (0 si pas connu) : " << std::endl;
     std::cin >> lN >> std::endl;
-    std::cout << "Pays : " << std::endl;
+	std::cout << "Pays (0 si pas connu) : " << std::endl;
     std::cin >> c >> std::endl;
 
     for (int i=0; i < lC.size(); i++)
     {
-        if ((lC[i]->firstName == fN) && (lC[i]->lastName == lN) && (lC[i]->country == c))
-            return (position=i);
-    }
-    return (position);
+		if ((fN == '0' || lC[i]->firstName == fN) &&
+			(lN == '0' || lC[i]->lastName == lN) &&
+			(c == '0' || lC[i]->country == c))
+			correspondingCivillians.push(i);
+	}
+
+	if (correspondingCivillians.size() == 0) // No found
+		return (position);
+	else if (correspondingCivillians.size() == 1) // Only 1 found
+		return (correspondingCivillians.top());
+	else // Many found
+	{
+		int currentCivilian;
+		do { // Loop in found civilians
+			currentCivilian = correspondingCivillians.top();
+			std::cout << "Civils trouves:" << std::endl;
+			std::cout << currentCivilian << ": " << *lC[currentCivilian] << std::endl;
+			correspondingCivillians.pop();
+		} while (correspondingCivillians.size() > 0);
+
+		do { // Loop until enter valid number
+			std::cout << std::endl;
+			std::endl << "Lequel correspond? : ";
+			std::cin >> currentCivilian;
+		} while (currentCivilian < 0 ||
+				 currentCivilian >= correspondingCivillians.size());
+		return (currentCivilian);
+	}
 }
 
 bool deleteCivilian(std::vector <Civilian*> lC)

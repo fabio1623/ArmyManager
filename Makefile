@@ -13,7 +13,8 @@ NAME=		ArmyManager
 SRC=		main.cpp		\
 			Army.cpp		\
 			Civilian.cpp	\
-			Military.cpp
+			Military.cpp	\
+			function.cpp
 OBJ=		$(SRC:.cpp=.o)
 
 CXXFLAGS=	-W -Wall -Wextra -Werror

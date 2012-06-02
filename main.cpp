@@ -16,8 +16,8 @@
 int main ()
 {
     int choix = 0;
-    std::vector<Civilian*> civilList;
-    Army army1 = new Army();
+	std::vector<Civilian> civilList;
+	Army army1;
 
     while (choix != 11)
         {
