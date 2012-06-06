@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include "Army.hpp"
+#include "function.hpp"
 
 Army::Army()
 {
@@ -118,7 +119,7 @@ bool Army::sendToWar(Military &milit)
     if (find(milit) != -1)
         return (false);
 
-	milit.setStrengh(milit.getStrengh()+1);
+    milit.setStrength(milit.getStrength()+1);
     return (true);
 }
 
@@ -126,10 +127,7 @@ void Army::displayMilitaries()
 {
     for (unsigned int i=0; i < this->troops.size(); i++)
     {
-        std::cout << "Militaire";
-        std::cout << i;
-        std::cout << ": ";
-        //std::cout << this->troops[i] << std::endl;
+        std::cout << this->troops[i] << std::endl;
     }
 }
 
