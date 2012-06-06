@@ -26,14 +26,18 @@ class	Army
 	~Army();
 	const std::vector<std::string>	getRanks(void) const;
 	std::string						getRankById(unsigned int rank) const;
+    int                             getIdByRank(std::string rank);
 	const std::vector<std::string>	&getTypes(void) const;
 	std::string						getTypeById(unsigned int type) const;
+    std::vector<Military>           &getTroops(void);
+    Military                        getMilitary(unsigned int id);
     int find(Military const &milit);
     int find(const Civilian &civil);
 	bool recruit(Civilian &civilian);
     bool fire(Military &milit);
     bool sendToWar(Military &milit);
     void displayMilitaries();
+    bool promote(int id);
 };
 
 #endif

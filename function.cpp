@@ -1,6 +1,6 @@
 #include "function.hpp"
 
-Civilian *createCivilian()
+Civilian createCivilian()
 {
     std::string firstName, lastName, country;
     int strength;
@@ -17,11 +17,11 @@ Civilian *createCivilian()
     return (new Civilian(firstName, lastName, country, strength));
 }
 
-void displayCivilians(std::vector<Civilian *> lC)
+void displayCivilians(std::vector<Civilian> lC)
 {
-    for (int i=0; i < lC.size(); i++)
+    for (unsigned int i=0; i < lC.size(); i++)
     {
-        std::cout << "Civil" + i + ": " << *lC[i] << std::endl;
+        std::cout << "Civil" + i + ": " << lC[i] << std::endl;
     }
 }
 
@@ -31,7 +31,14 @@ std::ostream &operator << (std::ostream &cout, Civilian const &other)
     cout << other.getCountry() << ", Force : " << other.getStrengh();
 }
 
-int findCivilian(std::vector <Civilian*> lC)
+std::ostream &operator << (std::ostream &cout, Military const &other)
+{
+    cout << other.getId() << ", " << other.getFirstname() << ", " << other.getLastname() << ", ";
+    cout << other.getCountry() << ", Force : " << other.getStrengh() << ", " << other.getRank() << ", ";
+    cout << other.getType() << ", " << other.getWeapon();
+}
+
+int findCivilian(std::vector <Civilian> lC)
 {
 	std::stack<int>	correspondingCivillians;
     std::string fN, lN, c;
@@ -46,9 +53,9 @@ int findCivilian(std::vector <Civilian*> lC)
 
     for (int i=0; i < lC.size(); i++)
     {
-		if ((fN == '0' || lC[i]->firstName == fN) &&
-			(lN == '0' || lC[i]->lastName == lN) &&
-			(c == '0' || lC[i]->country == c))
+        if ((fN == '0' || lC[i].firstName == fN) &&
+            (lN == '0' || lC[i].lastName == lN) &&
+            (c == '0' || lC[i].country == c))
 			correspondingCivillians.push(i);
 	}
 
@@ -76,14 +83,58 @@ int findCivilian(std::vector <Civilian*> lC)
 	}
 }
 
-bool deleteCivilian(std::vector <Civilian*> lC)
+int findMilitary(std::vector <Military> lM)
 {
-    bool find=0;
+    std::stack<int>	correspondingMilitary;
+    std::string fN, lN, c;
+    int position = -1;
+
+    std::cout << "Nom (0 si pas connu) : " << std::endl;
+    std::cin >> fN >> std::endl;
+    std::cout << "Prenom (0 si pas connu) : " << std::endl;
+    std::cin >> lN >> std::endl;
+    std::cout << "Pays (0 si pas connu) : " << std::endl;
+    std::cin >> c >> std::endl;
+
+    for (int i=0; i < lM.size(); i++)
+    {
+        if ((fN == '0' || lM[i].firstName == fN) &&
+            (lN == '0' || lM[i].lastName == lN) &&
+            (c == '0' || lM[i].country == c))
+            correspondingMilitary.push(i);
+    }
+
+    if (correspondingMilitary.size() == 0) // No found
+        return (position);
+    else if (correspondingMilitary.size() == 1) // Only 1 found
+        return (correspondingMilitary.top());
+    else // Many found
+    {
+        unsigned int currentMilitary;
+        do { // Loop in found civilians
+            currentMilitary = correspondingMilitary.top();
+            std::cout << "Militaires trouves:" << std::endl;
+            std::cout << currentMilitary << ": " << *lC[currentMilitary] << std::endl;
+            correspondingMilitary.pop();
+        } while (correspondingMilitary.size() > 0);
+
+        do { // Loop until enter valid number
+            std::cout << std::endl;
+            std::endl << "Lequel correspond? : ";
+            std::cin >> currentMilitary;
+        } while (currentMilitary < 0 ||
+                 currentMilitary >= correspondingMilitary.size());
+        return (currentMilitary);
+    }
+}
+
+bool deleteCivilian(std::vector <Civilian> lC)
+{
     int civilPosition = findCivilian(lC);
 
     if (civilPosition = -1)
-        return (find);
+        return (false);
 
     lC.erase(lC.begin()+civilPosition);
-    return (find=1);
+    return (true);
 }

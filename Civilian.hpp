@@ -33,8 +33,8 @@ class	Civilian
 	void		setLastname(std::string const &lname);
 	std::string	getCountry(void) const;
 	void		setCountry(std::string const &ctry);
-	int			getStrengh(void) const;
-	void		setStrengh(int const sgh);
+    int			getStrength(void) const;
+    void		setStrength(int const sgh);
 };
 
 #endif

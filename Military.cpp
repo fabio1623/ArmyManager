@@ -22,7 +22,7 @@ Military::Military(std::string fname, std::string lname, std::string ctry, int s
 // Constructeur par héritage d'un civil
 Military::Military(Civilian const &other)
 	: Civilian(other.getFirstname(), other.getLastname(), other.getCountry(),
-			   other.getStrengh())
+               other.getStrength())
 {
 }
 
@@ -67,7 +67,7 @@ bool	Military::operator==(Civilian const &other) const
 	if (this->firstname == other.getFirstname() &&
 		this->lastname == other.getLastname() &&
 		this->country == other.getCountry() &&
-		this->strengh == other.getStrengh())
+        this->strength == other.getStrength())
 		return (true);
 	return (false);
 }
@@ -77,7 +77,7 @@ bool	Military::operator==(Military const &other) const
 	if (this->firstname == other.firstname &&
 		this->lastname == other.lastname &&
 		this->country == other.country &&
-		this->strengh == other.strengh &&
+        this->strength == other.strength &&
 		this->id == other.id &&
 		this->rank == other.rank &&
 		this->type == other.type &&
@@ -101,7 +101,7 @@ int		Military::getId(void) const
 	return (this->id);
 }
 
-int		Military::getRank(void) const
+unsigned int		Military::getRank(void) const
 {
 	return (this->rank);
 }

@@ -17,6 +17,7 @@ int main ()
 {
     int choix = 0;
 	std::vector<Civilian> civilList;
+    bool suppressed, sent, fired, promoted, recruited;
     Army army1;
 
     while (choix != 11)
@@ -45,22 +46,38 @@ int main ()
                 displayCivilians(civilList);
                         break;
                 case 3:
-                deleteCivilian(civilList);
+                suppressed = deleteCivilian(civilList);
+                std::cout << suppressed;
                         break;
                 case 4:
-                army1.recruit(civilList[findCivilian(civilList)]);
+                recruited = army1.recruit(civilList[findCivilian(civilList)]);
+                std::cout << recruited;
                         break;
                 case 5:
                 army1.displayMilitaries();
                         break;
                 case 6:
-                army1.sendToWar(civilList[findCivilian(civilList)]);
+                //Military &temp = army1.getTroops().at(findMilitary(army1.getTroops()));
+                sent = army1.sendToWar(army1.getTroops().at(findMilitary(army1.getTroops())));
+                std::cout << sent;
                         break;
                 case 7:
-                army1.fire(civilList[findCivilian(civilList)]);
+                fired = army1.fire(army1.getTroops()[findMilitary(army1.getTroops())]);
+                std::cout << fired;
                         break;
-                //case 8:
+                case 8:
+                promoted = army1.promote(findMilitary(army1.getTroops()));
+                std::cout << promoted;
+                        break;
+                case 9:
 
+                        break;
+                case 10:
+
+                        break;
+                case 11:
+
+                        break;
             }
     }
 	return 0;

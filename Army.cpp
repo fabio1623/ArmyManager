@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+#include <iostream>
 #include "Army.hpp"
 
 Army::Army()
@@ -38,6 +39,15 @@ std::string	Army::getRankById(unsigned int rank) const
     return (this->ranks[rank]);
 }
 
+int Army::getIdByRank(std::string rank)
+{
+    for (unsigned int i=0; i < this->ranks.size(); i++)
+        if (this->ranks[i] == rank)
+            return (i);
+
+    return (-1);
+}
+
 const std::vector<std::string> &Army::getTypes(void) const
 {
 	return (this->types);
@@ -48,9 +58,19 @@ std::string		Army::getTypeById(unsigned int type) const
 	return (this->types[type]);
 }
 
+std::vector<Military> &Army::getTroops(void)
+{
+    return (this->troops);
+}
+
+Military Army::getMilitary(unsigned int id)
+{
+    return (this->troops[id]);
+}
+
 int Army::find(Military const &milit)
 {
-    for (unsigned int i=0; i<this->troops.size(); i++)
+    for (unsigned int i=0; i< this->troops.size(); i++)
     {
         if (this->troops[i] == milit)
         {
@@ -62,7 +82,7 @@ int Army::find(Military const &milit)
 
 int Army::find(Civilian const &civil)
 {
-    for (unsigned int i=0; i<this->troops.size(); i++)
+    for (unsigned int i=0; i < this->troops.size(); i++)
     {
         if (this->troops[i] == civil)
         {
@@ -102,11 +122,23 @@ bool Army::sendToWar(Military &milit)
     return (true);
 }
 
-void displayMilitaries()
+void Army::displayMilitaries()
 {
-    for (int i=0; i < this->troops.size(); i++)
+    for (unsigned int i=0; i < this->troops.size(); i++)
     {
-        std::cout << "Militaire" + i + ": " << *this->troops[i] << std::endl;
+        std::cout << "Militaire";
+        std::cout << i;
+        std::cout << ": ";
+        //std::cout << this->troops[i] << std::endl;
     }
+}
+
+bool Army::promote(int id)
+{
+    if (this->getMilitary(id).getRank() == this->ranks.size()-1)
+        return (false);
+
+    this->getMilitary(id).setRank(this->getMilitary(id).getRank()+1);
+    return (true);
 }
 

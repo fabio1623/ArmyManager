@@ -33,7 +33,7 @@ class	Military : public Civilian
 	bool		operator!=(Civilian const &other) const;
 	bool		operator!=(Military const &other) const;
 	int			getId(void) const;
-	int			getRank(void) const;
+    unsigned int getRank(void) const;
 	void		setRank(int const mRank);
 	int			getType(void) const;
 	void		setType(int const mType);

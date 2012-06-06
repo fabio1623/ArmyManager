@@ -16,7 +16,7 @@ Civilian::Civilian(std::string fname, std::string lname, std::string ctry, int s
 	if (sgh == -1)
 	{
 		srand(time(NULL));
-		this->strengh = rand() % 100 + 1;
+        this->strength = rand() % 100 + 1;
 	}
 	else
         this->strength = sgh;
