@@ -1,12 +1,3 @@
-##
-## Makefile for d01 in /home/rihan_a/Projets/Piscine/Tek2/d01
-##
-## Made by adnan rihan
-## Login   <rihan_a@epitech.net>
-##
-## Started on  Wed Jan  4 09:43:54 2012 adnan rihan
-## Last update Tue Feb 14 17:14:55 2012 Adnan RIHAN
-##
 
 NAME=		ArmyManager
 

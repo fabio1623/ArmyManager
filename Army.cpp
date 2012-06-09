@@ -69,6 +69,11 @@ Military Army::getMilitary(unsigned int id)
     return (this->troops[id]);
 }
 
+std::vector<Civilian> &Army::getApplicants(void)
+{
+    return (this->applicants);
+}
+
 int Army::find(Military const &milit)
 {
     for (unsigned int i=0; i< this->troops.size(); i++)
@@ -83,9 +88,9 @@ int Army::find(Military const &milit)
 
 int Army::find(Civilian const &civil)
 {
-    for (unsigned int i=0; i < this->troops.size(); i++)
+    for (unsigned int i=0; i < this->applicants.size(); i++)
     {
-        if (this->troops[i] == civil)
+        if (this->applicants[i] == civil)
         {
             return (i);
         }
@@ -93,34 +98,25 @@ int Army::find(Civilian const &civil)
     return (-1);
 }
 
-bool Army::recruit(Civilian &individual)
+void Army::recruit(Civilian &individual)
 {
     if (find(individual) != -1)
-        return (false);
-
-    Military *unit = new Military(individual);
-    this->troops.push_back(*unit);
-
-    return (true);
+        this->troops.push_back(individual);
+    else
+    std::cout << "Civil inexistant";
 }
 
-bool Army::fire(Military &milit)
+void Army::fire(Military &milit)
 {
     int nMilit = find(milit);
-    if (nMilit == -1)
-        return (false);
-
+    if (nMilit != -1)
     this->troops.erase(this->troops.begin()+nMilit);
-    return (true);
 }
 
-bool Army::sendToWar(Military &milit)
+void Army::sendToWar(Military &milit)
 {
-    if (find(milit) != -1)
-        return (false);
-
+    if (find(milit) == -1)
     milit.setStrength(milit.getStrength()+1);
-    return (true);
 }
 
 void Army::displayMilitaries()
@@ -131,12 +127,9 @@ void Army::displayMilitaries()
     }
 }
 
-bool Army::promote(int id)
+void Army::promote(int id)
 {
-    if (this->getMilitary(id).getRank() == this->ranks.size()-1)
-        return (false);
-
+    if (this->getMilitary(id).getRank() != this->ranks.size()-1)
     this->getMilitary(id).setRank(this->getMilitary(id).getRank()+1);
-    return (true);
 }
 

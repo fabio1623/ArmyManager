@@ -9,13 +9,12 @@
 #include "Civilian.hpp"
 #include "Military.hpp"
 
-void createCivilian(std::vector<Civilian> &lC);
-void displayCivilians(std::vector<Civilian> &lC);
+void createCivilian(Army &army);
+void displayCivilians(Army &army);
 std::ostream &operator << (std::ostream &cout, Civilian const &other);
 std::ostream &operator << (std::ostream &cout, Military const &other);
 int findCivilian(std::vector<Civilian> &lC);
 int findMilitary(std::vector<Military> &lM);
-bool deleteCivilian(std::vector<Civilian> &lC);
-void fire(std::vector<Civilian> &lC, Civilian &civil);
+void deleteCivilian(Army &army);
 
 #endif // FUNCTION_HPP

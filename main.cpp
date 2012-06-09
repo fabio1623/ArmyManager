@@ -16,15 +16,13 @@
 int main ()
 {
     int choix = 0;
-    std::vector<Civilian> civilList;
-    bool suppressed, sent, fired, promoted, recruited;
     Army army1;
 
     Civilian civ1("Fabio", "Pedro", "Pt", 5);
     Civilian civ2("Adnan", "Rihan", "Fr", 10);
 
-    civilList.push_back(civ1);
-    civilList.push_back(civ2);
+    army1.getApplicants().push_back(civ1);
+    army1.getApplicants().push_back(civ2);
 
     army1.recruit(civ1);
     army1.recruit(civ2);
@@ -50,34 +48,36 @@ int main ()
             std::cout << std::endl;
             switch (choix) {
                 case 1:
-                createCivilian(civilList);
+                createCivilian(army1);
+                std::cout << "Civil cree";
                     break;
                 case 2:
-                displayCivilians(civilList);
+                displayCivilians(army1);
+                std::cout << "Civils affiches";
                         break;
                 case 3:
-                suppressed = deleteCivilian(civilList);
-                std::cout << suppressed;
+                deleteCivilian(army1);
+                std::cout << "Civil supprime";
                         break;
                 case 4:
-                recruited = army1.recruit(civilList[findCivilian(civilList)]);
-                fire(civilList, civil);
-                std::cout << recruited;
+                army1.recruit(army1.getApplicants()[findCivilian(army1.getApplicants())]);
+                std::cout << "Civil recrute";
                         break;
                 case 5:
                 army1.displayMilitaries();
+                std::cout << "Militaires affiches";
                         break;
                 case 6:
-                sent = army1.sendToWar(army1.getTroops().at(findMilitary(army1.getTroops())));
-                std::cout << sent;
+                army1.sendToWar(army1.getTroops().at(findMilitary(army1.getTroops())));
+                std::cout << "Militaire envoye en guerre";
                         break;
                 case 7:
-                fired = army1.fire(army1.getTroops()[findMilitary(army1.getTroops())]);
-                std::cout << fired;
+                army1.fire(army1.getTroops()[findMilitary(army1.getTroops())]);
+                std::cout << "Militaire releve";
                         break;
                 case 8:
-                promoted = army1.promote(findMilitary(army1.getTroops()));
-                std::cout << promoted;
+                army1.promote(findMilitary(army1.getTroops()));
+                std::cout << "Militaire promus";
                         break;
                 case 9:
 

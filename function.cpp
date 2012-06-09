@@ -1,6 +1,6 @@
 #include "function.hpp"
 
-void createCivilian(std::vector<Civilian> &lC)
+void createCivilian(Army &army)
 {
     std::string firstName, lastName, country;
     int strength;
@@ -15,14 +15,14 @@ void createCivilian(std::vector<Civilian> &lC)
     std::cin >> strength;
 
     Civilian *civil = new Civilian(firstName, lastName, country, strength);
-    lC.push_back(*civil);
+    army.getApplicants().push_back(*civil);
 }
 
-void displayCivilians(std::vector<Civilian> &lC)
+void displayCivilians(Army &army)
 {
-    for (unsigned int i=0; i < lC.size(); i++)
+    for (unsigned int i=0; i < army.getApplicants().size(); i++)
     {
-        std::cout << "Civil " << i << ": " << lC[i] << std::endl;
+        std::cout << "Civil " << i << ": " << army.getApplicants()[i] << std::endl;
     }
 }
 
@@ -37,8 +37,8 @@ std::ostream &operator << (std::ostream &cout, Civilian const &other)
 std::ostream &operator << (std::ostream &cout, Military const &other)
 {
     cout << other.getId() << ", " << other.getFirstname() << ", " << other.getLastname() << ", ";
-    cout << other.getCountry() << ", Force : " << other.getStrength() << ", " << other.getRank() << ", ";
-    cout << other.getType() << ", " << other.getWeapon();
+    cout << other.getCountry() << ", Force : " << other.getStrength() << ", Grade : " << other.getRank() << ", Type : ";
+    cout << other.getType() << ", Arme : " << other.getWeapon();
 
     return (cout);
 }
@@ -131,23 +131,10 @@ int findMilitary(std::vector <Military> &lM)
     }
 }
 
-bool deleteCivilian(std::vector <Civilian> &lC)
+void deleteCivilian(Army &army)
 {
-    int civilPosition = findCivilian(lC);
+    int civilPosition = findCivilian(army.getApplicants());
 
-    if (civilPosition == -1)
-        return (false);
-
-    lC.erase(lC.begin()+civilPosition);
-    return (true);
-}
-
-void fire(std::vector<Civilian> &lC, Civilian &civil)
-{
-    int nCivil = find(civil);
-    if (nCivil == -1)
-        //return (false);
-
-    lC.erase(lC.begin()+nCivil);
-    //return (true);
+    if (civilPosition != -1)
+    army.getApplicants().erase(army.getApplicants().begin()+civilPosition);
 }

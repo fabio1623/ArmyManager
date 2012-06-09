@@ -19,7 +19,9 @@ class	Army
 	private:
 	std::vector<std::string>	ranks;
 	std::vector<std::string>	types;
+    std::vector<std::string>    weapons;
     std::vector<Military>		troops;
+    std::vector<Civilian>       applicants;
 
 	public:
 	Army();
@@ -31,13 +33,14 @@ class	Army
 	std::string						getTypeById(unsigned int type) const;
     std::vector<Military>           &getTroops(void);
     Military                        getMilitary(unsigned int id);
+    std::vector<Civilian>           &getApplicants(void);
     int find(Military const &milit);
-    int find(const Civilian &civil);
-	bool recruit(Civilian &civilian);
-    bool fire(Military &milit);
-    bool sendToWar(Military &milit);
+    int find(Civilian const &civil);
+    void recruit(Civilian &civilian);
+    void fire(Military &milit);
+    void sendToWar(Military &milit);
     void displayMilitaries();
-    bool promote(int id);
+    void promote(int id);
 };
 
 #endif
